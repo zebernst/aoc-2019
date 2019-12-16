@@ -49,3 +49,4 @@ class AOCProblem(ABC):
 if __name__ == '__main__':
     Day01.run()
     Day02.run()
+    Day03.run()
