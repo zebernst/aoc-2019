@@ -1,61 +1,28 @@
 from aoc import AOCProblem
-from operator import add, mul
-
-opcodes = {
-    1: add,
-    2: mul,
-}
+from solutions.intcode import IntcodeComputer
 
 
 class Day02(AOCProblem):
     day = 2
 
     def preprocess(self, data):
-        return [int(i) for i in data.split(',')]
+        return [int(i) for i in data.split(",")]
 
     def part1(self):
-        intcode = self.data[:]
-        intcode[1] = 12
-        intcode[2] = 2
-        idx = 0
-        while intcode[idx] != 99:
-            opcode = intcode[idx]
-            pos1 = intcode[idx+1]
-            pos2 = intcode[idx+2]
-            outpos = intcode[idx+3]
-
-            val1 = intcode[pos1]
-            val2 = intcode[pos2]
-
-            result = opcodes.get(opcode)(val1, val2)
-            intcode[outpos] = result
-            idx += 4
-
-        return intcode[0]
+        comp = IntcodeComputer(self.data)
+        comp.setup(noun=12, verb=2)
+        return comp.run()
 
     def part2(self):
         for noun in range(100):
             for verb in range(100):
-                intcode = self.data[:]
-                intcode[1] = noun
-                intcode[2] = verb
-                idx = 0
-                while intcode[idx] != 99:
-                    opcode = intcode[idx]
-                    pos1 = intcode[idx + 1]
-                    pos2 = intcode[idx + 2]
-                    outpos = intcode[idx + 3]
+                comp = IntcodeComputer(self.data)
+                comp.setup(noun, verb)
+                result = comp.run()
 
-                    val1 = intcode[pos1]
-                    val2 = intcode[pos2]
-
-                    result = opcodes.get(opcode)(val1, val2)
-                    intcode[outpos] = result
-                    idx += 4
-
-                if intcode[0] == 19690720:
+                if result == 19690720:
                     return 100 * noun + verb
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     Day02.run()
