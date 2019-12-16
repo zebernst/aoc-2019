@@ -10,7 +10,7 @@ if __name__ == "__main__":
     day = int(sys.argv[1])
     day_dir: Path = Path(__file__).resolve().parent / "solutions" / f"Day{day:02d}"
 
-    problem: Path = day_dir / "problem.md"
+    problem: Path = day_dir / "readme.md"
     solution: Path = day_dir / "solution.py"
     init: Path = day_dir.parent / "__init__.py"
 
