@@ -29,4 +29,4 @@ class Day01(AOCProblem):
 
 
 if __name__ == '__main__':
-    Day01().run()
+    Day01.run()

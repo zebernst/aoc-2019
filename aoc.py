@@ -34,11 +34,14 @@ class AOCProblem(ABC):
     def part2(self):
         pass
 
-    def run(self):
-        print(f"Day {self.day}")
-        print(f" ├╼ Part 1: {self.part1()}")
-        print(f" └╼ Part 2: {self.part2()}")
+    @classmethod
+    def run(cls):
+        inst = cls()
+        print(f"Day {inst.day}")
+        print(f" ├╼ Part 1: {inst.part1()}")
+        print(f" └╼ Part 2: {inst.part2()}")
 
 
 if __name__ == '__main__':
-    Day01().run()
+    Day01.run()
+    Day02.run()
