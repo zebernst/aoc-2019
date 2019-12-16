@@ -26,7 +26,7 @@ if __name__ == "__main__":
                     f"class Day{day:02d}(AOCProblem):\n",
                     f"    day = {day}\n",
                     "\n",
-                    "    def preprocess(self, data):\n",
+                    "    def preprocess(self, data: str):\n",
                     "        pass\n",
                     "\n",
                     "    def part1(self):\n",

@@ -27,7 +27,7 @@ class AOCProblem(ABC):
         self.data = self.preprocess(get_data(day=self.day))
 
     @abstractmethod
-    def preprocess(self, data):
+    def preprocess(self, data: str):
         pass
 
     @abstractmethod

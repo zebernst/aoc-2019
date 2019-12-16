@@ -32,7 +32,7 @@ class IntcodeComputer:
             if action is None:
                 break
 
-            params = slice(start=ptr + 1, stop=ptr + 1 + num_params)
+            params = slice(ptr + 1, ptr + 1 + num_params)
             action(*self.memory[params])
 
             ptr += 1 + num_params
