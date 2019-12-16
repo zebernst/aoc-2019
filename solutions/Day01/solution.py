@@ -8,16 +8,15 @@ def calculate_fuel(module):
 class Day01(AOCProblem):
     day = 1
 
-    def part1(self):
-        modules = [int(m) for m in self.data.splitlines()]
+    def preprocess(self, data):
+        return [int(m) for m in data.splitlines()]
 
-        return sum(calculate_fuel(m) for m in modules)
+    def part1(self):
+        return sum(calculate_fuel(m) for m in self.data)
 
     def part2(self):
-        modules = [int(m) for m in self.data.splitlines()]
-
         total = 0
-        for mod in modules:
+        for mod in self.data:
             subtotal = 0
             result = calculate_fuel(mod)
             while result > 0:

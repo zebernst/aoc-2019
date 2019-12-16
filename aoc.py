@@ -24,7 +24,11 @@ class AOCProblem(ABC):
     day = None
 
     def __init__(self):
-        self.data = get_data(day=self.day)
+        self.data = self.preprocess(get_data(day=self.day))
+
+    @abstractmethod
+    def preprocess(self, data):
+        pass
 
     @abstractmethod
     def part1(self):
