@@ -35,8 +35,9 @@ class AOCProblem(ABC):
         pass
 
     def run(self):
-        print("part 1:", self.part1())
-        print("part 2:", self.part2())
+        print(f"Day {self.day}")
+        print(f" ├╼ Part 1: {self.part1()}")
+        print(f" └╼ Part 2: {self.part2()}")
 
 
 if __name__ == '__main__':
