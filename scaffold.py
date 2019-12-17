@@ -43,10 +43,10 @@ if __name__ == "__main__":
 
     with init.open() as f:
         lines = [l for l in f.readlines()[:-1] if not l.isspace()]
-        day_import = f"from .Day{day:02d}.solution import Day{day:02d}\n"
+        day_import = f"from .day{day:02d}.solution import Day{day:02d}\n"
         if day_import not in lines:
             lines.append(day_import)
-        lines.sort()
+        lines = sorted(set(lines))
 
         explicit_exports = f"__all__ = {[line.split()[-1] for line in lines if not line.isspace()]}\n"
 
